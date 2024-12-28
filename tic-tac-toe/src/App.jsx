@@ -48,12 +48,14 @@ function App() {
     if(gameState[0][0] === gameState[1][1] && gameState[1][1] === gameState[2][2]){
       if(gameState[0][0] !== null){
         // setWinner(true);
+        setHighlightArray([0,4,8]);
         return gameState[0][0];
       }
     }
     if(gameState[0][2] === gameState[1][1] && gameState[1][1] === gameState[2][0]){
       if(gameState[0][2] !== null){
         // setWinner(true);
+        setHighlightArray([2,4,6]);
         return gameState[0][2];
       }
     }
@@ -106,9 +108,9 @@ function App() {
     return result;
   }
 
-  socket?.on("OpponentLeftMatch",()=>{
-    alert("Opponent left match")
-    setWinner('OpponentLeftMatch');
+  socket?.on("opponentLeftMatch",()=>{
+    setWinner('opponentLeftMatch');
+    
   })
 
   socket?.on("playerMoveFromServer",(data)=>{
@@ -203,11 +205,11 @@ function App() {
           }))}
         </div>
 
-          {winner && winner !=="OpponentLeftMatch" && winner !== 'draw' && (
+          {winner && winner !=="opponentLeftMatch" && winner !== 'draw' && (
             <div className="mt-8 text-3xl font-medium"> {winner=== playingAs ?"You" :winner} Won The Game </div>
           )}
 
-           {winner && winner !=="OpponentLeftMatch" && winner === 'draw' && (
+           {winner && winner !=="opponentLeftMatch" && winner === 'draw' && (
             <div className="mt-8 text-3xl font-medium">It's Draw Game </div>
           )}
       </div>  
@@ -215,7 +217,7 @@ function App() {
             <div className="mt-8 text-3xl font-medium text-center">You are Playing against {opponentName}</div>
           )}
 
-           {winner && winner ==="OpponentLeftMatch" &&   (
+           {winner && winner ==="opponentLeftMatch" &&   (
             <div className="mt-8 text-3xl font-medium text-center">You won the match, Opponent Left the match</div>
           )}
       
