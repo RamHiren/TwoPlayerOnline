@@ -148,7 +148,7 @@ function App() {
     const username = result.value;
     setPlayerName(username);
 
-    const newSocket = io('http://localhost:3000', {
+    const newSocket = io('https://twoplayeronline-backend.onrender.com', {
       autoConnect: true,
     });
 
