@@ -47,10 +47,10 @@ const Square = ({id,setGameState,currentPlayer,setCurrentPlayer,winner,highlight
   return (
     <>
      <div onClick={handleOnClickSquare}
-      className={`w-24 h-24 water-background-square border border-black rounded-md cursor-pointer
+      className={`w-full h-full water-background-square border border-black rounded-md cursor-pointer
        ${winner ? 'pointer-events-none' : ''} ${currentPlayer !== playingAs ? 'pointer-events-none' : ''}
        ${highlightArray.includes(id) ? winner+'-won':''} 
-       `}>
+       sm:w-[calc(33.33vw)] sm:h-[calc(33.33vw)] md:w-24 md:h-24`}>
       {currentElement === 'O' ? 'O' : currentElement==='X' ? 'X' : ox}
      </div>
     </>

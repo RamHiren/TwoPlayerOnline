@@ -179,15 +179,15 @@ function App() {
     <>
       <div className="flex flex-col items-center justify-center ">
         <div>
-          <div className="move-detection flex justify-between w-96 mt-10">
-            <div className={`left ${currentPlayer === playingAs ?'current-move-'+currentPlayer :'' }`}>{PlayerName}</div>
-            <div className={`right ${currentPlayer !== playingAs ?'current-move-'+currentPlayer :'' }`}>{opponentName}</div>
+          <div className="move-detection flex justify-between items-center w-full sm:w-96 mt-4 sm:mt-10 px-2 sm:px-4">
+            <div className={`left text-sm sm:text-lg font-medium py-1 sm:py-1 h-8 sm:h-6 flex items-center justify-center ${currentPlayer === playingAs ?'current-move-'+currentPlayer :'' }`}>{PlayerName}</div>
+            <div className={`right text-sm sm:text-lg font-medium py-1 sm:py-1 h-8 sm:h-6 flex items-center justify-center ${currentPlayer !== playingAs ?'current-move-'+currentPlayer :'' }`}>{opponentName}</div>
           </div>
         </div>
-        <h1 className="text-5xl font-semibold water-background px-6 py-3 mt-9 rounded-md">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold water-background px-4 sm:px-6 py-2 sm:py-3 mt-6 sm:mt-9 rounded-md text-center">
           Tic Tac Toe
         </h1>
-        <div className="square-wrapper mt-8">
+        <div className="square-wrapper grid grid-cols-3 gap-2 sm:gap-4 p-4">
           {renderFrom.map((arr,rowIndex)=>
           arr.map((e,colIndex)=>{
             return <Square 
@@ -206,19 +206,19 @@ function App() {
         </div>
 
           {winner && winner !=="opponentLeftMatch" && winner !== 'draw' && (
-            <div className="mt-8 text-3xl font-medium"> {winner=== playingAs ?"You" :winner} Won The Game </div>
+            <div className="mt-4 sm:mt-8 text-xl sm:text-3xl font-medium text-center"> {winner=== playingAs ?"You" :winner} Won The Game </div>
           )}
 
            {winner && winner !=="opponentLeftMatch" && winner === 'draw' && (
-            <div className="mt-8 text-3xl font-medium">It's Draw Game </div>
+            <div className="mt-4 sm:mt-8 text-xl sm:text-3xl font-medium text-center">It's Draw Game </div>
           )}
       </div>  
            {!winner && opponentName &&  (
-            <div className="mt-8 text-3xl font-medium text-center">You are Playing against {opponentName}</div>
+            <div className="mt-4 sm:mt-8 text-xl sm:text-3xl font-medium text-center">You are Playing against {opponentName}</div>
           )}
 
            {winner && winner ==="opponentLeftMatch" &&   (
-            <div className="mt-8 text-3xl font-medium text-center">You won the match, Opponent Left the match</div>
+            <div className="mt-4 sm:mt-8 text-xl sm:text-3xl font-medium text-center">You won the match, Opponent Left the match</div>
           )}
       
     </>
