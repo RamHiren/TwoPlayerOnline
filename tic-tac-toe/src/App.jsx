@@ -162,8 +162,8 @@ function App() {
   }
 
   if(!playOnline){
-    return <div className="flex items-center justify-center h-screen">
-    <button onClick={handleOnlineClick} className="text-7xl px-7 py-4 back-color rounded-md shadow-md hover:bg-blue-600 cursor-pointer">
+    return <div className="flex items-center justify-center h-screen px-4">
+    <button onClick={handleOnlineClick} className="text-3xl sm:text-5xl md:text-7xl px-6 sm:px-8 py-3 sm:py-4 back-color rounded-md shadow-md hover:bg-blue-600 cursor-pointer">
       Play Online
     </button>
   </div>
